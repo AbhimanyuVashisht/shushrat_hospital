@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+{% block show_content %}
+<style>
+.tablecontent {
+  width: 100%;
+  margin: 0px;
+  max-width: 100%;
+}
+</style>
+  <div class="tablecontent">
+    <form action="#" method="post" class="form login">
+      <header class="login__header">
+          <!--<h3 class="login__title"><a href="{% url 'newopd' %}">New Opd |</a> Show Opd | <a href="{% url 'newipd' %}">New Ipd</a> | <a href="{% url 'showipd' %}">Show Ipd</a> </h3>-->
+          <h3 class="login__title"><a href="{% url 'newopd' %}">New Opd</a> | <a href="{% url 'newipd' %}">New Ipd</a> |Opd Report| <a href="{% url 'showipd' %}">Ipd Report</a></h3>
+
+      </header>
+
+      <div class="login__body">
+
+        <footer class="login__footer">
+          <input type="submit" value="Search">
+            <!--<input type="submit" value="Sort">-->
+              <!--<input type="submit" value="Filter">-->
+                <input type="submit" id ="btnExport" onclick="javascript:xport.toCSV('customers');" value="Download CSV">
+              </footer>
+      </div>
+      </footer>
+    </form>
+  </div>
+  <div id="dvData" >{% csrf_token %}
+      <table id="customers" style="width:100%;">
+          <tr>
+              <th>Name</th>
+              <th>Age</th>
+              <th>Gender</th>
+              <th>Adhar</th>
+              <th>Department</th>
+              <th>Room No.</th>
+              <th>Relation</th>
+              <th>Options</th>
+              <th>Phone No.</th>
+              <th>Address</th>
+              <th>Action</th>
+          </tr>
+          {% for i in opd %}
+          <tr style="text-align: center" >
+            <td>{{ i.name }}</td>
+            <td>{{ i.age}}</td>
+            <td>{{ i.gender}}</td>
+            <td>{{ i.adhar}}</td>
+            <td>{{ i.department}}</td>
+            <td>{{ i.roomNo}}</td>
+            <td>{{ i.relation }}</td>
+            <td>{{ i.option }}</td>
+            <td>{{ i.phone}}</td>
+            <td>{{ i.address}}</td>
+            <td style="width : 2px" ><input type="submit" value="delete"></td>
+          </tr>
+            {% endfor %}
+      </table>
+  </div>
+{% endblock %}

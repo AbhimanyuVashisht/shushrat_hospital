@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div id="header">
+   <div class="form login" >{% csrf_token %}
+      <form  action="{% url 'newipd' %}" method="post" class="login__body">
+        <header class="login__header" id="loginheader">
+        <!--<h3 class="login__title">New Ipd | <a href="{% url 'showipd' %}">Show Ipd</a> | <a href="{% url 'newopd' %}">New Opd</a> | <a href="{% url 'showopd' %}">Show Opd</a></h3>-->
+            <h3 class="login__title"><a href="{% url 'newopd' %}">New Opd</a> | New Ipd |  <a href="{% url 'showopd' %}">eportOpd R</a> | <a href="{% url 'showipd' %}">Ipd Report</a></h3>
+      </header>
+      <div class="login__body">
+
+        <div >
+          <input type="text" name="name" placeholder="Patient Name" required>
+        </div>
+
+        <div>
+          <input type="number" name="age" placeholder="Patiente Age" >
+        </div>
+
+        <!--<div>-->
+            <!--<input type="radio" name="gender" value="male">Male-->
+            <!--<input type="radio" name="gender" value="female">Female-->
+        <!--</div>-->
+
+        <div >
+          <input type="text" name="department" placeholder="Department" required>
+        </div>
+
+        <div >
+          <input type="text" name="romm_no" placeholder="Room No." required>
+        </div>
+
+        <div >
+          <input type="text" name="options" placeholder="Other Options" required>
+        </div>
+
+        <div>
+          <input type="text" name="phone_no" placeholder="Phone No." required>
+        </div>
+
+        <div>
+          <input type="text" name="relation" placeholder="Relation" required>
+        </div>
+
+        <div>
+          <input type="number" name="phone_no" placeholder="Mobile No." min="10" max="10" required>
+        </div>
+
+    <div>
+          <input type="text" name="adhar" placeholder="Adhar No." required>
+        </div>
+
+        <div>
+          <input type="text" name="address" placeholder="Address" required>
+        </div>
+        <div >
+          <input type="submit" value="submit" name="submit">
+        </div>
+      </div>
+    </form>
+    <footer></footer>
+   </div>
+</div>
+{% endblock %}
