@@ -1,0 +1,19 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html lang="en" >
+   <head>
+      <meta charset="UTF-8">
+      <title>Sushrat Hospital</title>
+      <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+      <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+      <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+      <link rel="stylesheet" href="{% static 'css/barcode.css' %}">
+      <script src="{% static 'js/barcode.js' %}"></script>
+   </head>
+      <body class="align" >
+      {% block barcode_content %}
+
+      {% endblock %}
+        </body>
+</html>

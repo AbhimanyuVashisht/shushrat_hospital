@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% load template_tags %}
+{% block show_content %}
+
+  <div >
+    <form action="#" method="post" class="form login">
+      <header class="login__header">
+        <h3 class="login__title"><a href="{% url 'newpatiente' %}">New patient</a> | Report</h3>
+      </header>
+
+      <div class="login__body">
+
+        <footer class="login__footer">
+          <input type="submit" value="Search">
+            <!--<input type="submit" value="Sort">-->
+              <!--<input type="submit" value="Filter">-->
+                <input type="submit" id ="btnExport" onclick="javascript:xport.toCSV('customers');" value="Download CSV">
+              </footer>
+      </div>
+      </footer>
+    </form>
+  </div>
+  <div id="dvData" >{% csrf_token %}
+      <table id="customers" style="width:100%;">
+          <tr>
+              <th>ID</th>
+              <th>Name</th>
+              <th>Count</th>
+          </tr>
+          {% for i in disease %}
+          <tr style="text-align: center">
+            <td>{{ i.id }}</td>
+            <td>{{ i.name }}</td>
+            <td>{{ i.count }}</td>
+            <td></td>
+          </tr>
+            {% endfor %}
+      </table>
+  </div>
+{% endblock %}
